@@ -1,29 +1,82 @@
+html, body {
+  overflow-x: hidden;
+}
 
 body {
-  background: #f0a029;
+  background: #363636;
   color: #ffffff;
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
 }
 
+
+.card-calculator {
+  height: auto;
+  width: 100%;
+  max-width: 380px;
+  background: #464444;
+  border-radius: 60px;
+  padding: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+
+h1 {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: clamp(24px, 5vw, 32px);
+  margin-bottom: 10px;
+}
+
+/* Display */
+.display {
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.display input {
+  width: 100%;
+  height: 100px;
+  line-height: normal;
+  font-size: clamp(30px, 6vw, 40px);
+  padding: 0 20px;
+  text-align: right;
+  border: none;
+  border-radius: 40px;
+  background: #222831;
+  color: #00ffd5;
+  box-sizing: border-box;
+}
+
+/* Button grid layout */
 .button-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 10px;
-  background: #222831;
-  border-radius: 10px;
-  gap: 10px
+  gap: 10px;
+  width: 100%;
 }
 
+/* Buttons */
 .button {
+  aspect-ratio: 1 / 1;
   width: 100%;
-  height: 90px;
-  font-size: 30px;
+  font-size: clamp(20px, 4.5vw, 30px);
   background-color: #393E46;
+  padding: 10px;
   color: white;
   border: none;
   border-radius: 100%;
@@ -37,41 +90,16 @@ body {
 
 .func {
   background-color: #6d6d6d;
-  
 }
 
+/* Responsive tweaks */
+@media (max-width: 400px) {
+  .display input {
+    height: 80px;
+    font-size: 28px;
+  }
 
-.card-calculator {
-  max-width: 420px;
-  margin: 0 auto;
-  background: #464444;
-  border-radius: 10px;
-  padding: 10px;
+  .button {
+    font-size: 18px;
+  }
 }
-
-.display {
-  
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.display input {
-  width: 400px;
-  height: 60px;
-  font-size: 24px;
-  padding: 10px;
-  text-align: right;
-  border: none;
-  border-radius: 6px;
-  background: #222831;
-  color: #00ffd5;
-  box-sizing: border-box;
-}
-
-h1 {
-    text-align: center;
-    font: Arial, sans-serif;
-    padding: 10px;
-}
-
