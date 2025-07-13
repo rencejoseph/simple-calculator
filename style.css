@@ -75,7 +75,7 @@ h1 {
   aspect-ratio: 1 / 1;
   width: 100%;
   font-size: clamp(20px, 4.5vw, 30px);
-  background-color: #393E46;
+  background-color: #393e46;
   padding: 10px;
   color: white;
   border: none;
@@ -90,6 +90,80 @@ h1 {
 
 .func {
   background-color: #6d6d6d;
+}
+ 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  text-decoration: none;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto 30px auto;
+  padding: 10px 24px;
+  background-color: #444444;
+  color: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.nav-bar ul {
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none; /* Remove bullets */
+}
+
+.nav-bar ul li {
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.nav-bar ul li:hover {
+  background: #393e46;
+}
+
+.nav-bar a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-bar a:hover {
+  color: #00ffd5;
+  text-decoration: underline;
+}
+
+/* Responsive tweaks for navbar */
+@media (max-width: 500px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 8px;
+    border-radius: 18px;
+  }
+  .nav-bar ul {
+    gap: 10px;
+  }
+  .nav-bar ul li {
+    font-size: 16px;
+    padding: 5px 8px;
+  }
 }
 
 /* Responsive tweaks */
