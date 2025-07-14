@@ -17,7 +17,6 @@ body {
   min-height: 100vh;
 }
 
-
 .card-calculator {
   height: auto;
   width: 100%;
@@ -31,8 +30,11 @@ body {
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
-}
 
+  transition: box-shadow 0.2s, transform 0.2s;
+
+  margin: 30px 0 0 40px; /* 40px indent from the left, adjust as needed */
+}
 
 h1 {
   text-align: center;
@@ -82,16 +84,35 @@ h1 {
   border-radius: 100%;
   cursor: pointer;
   box-sizing: border-box;
+
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.button:hover {
+  background-color: #4fd1c5;
+  color: #222831;
+  transform: scale(1.10);
+  box-shadow: 0 4px 20px #00ffd555, 0 2px 12px #00ffd533;
+  z-index: 1;
 }
 
 .operator {
   background-color: #f0a029;
 }
 
+.operator:hover {
+  background-color: #ffb84d;
+  box-shadow: 0 0 10px #f0a02988;
+}
+
 .func {
   background-color: #6d6d6d;
 }
- 
+
+.func:hover {
+  background-color: #8d8d8d;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -102,6 +123,7 @@ h1 {
   text-decoration: none;
 }
 
+/* Navbar styles */
 .nav-bar {
   display: flex;
   flex-direction: row;
@@ -146,34 +168,118 @@ h1 {
 
 .nav-bar a:hover {
   color: #00ffd5;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
-/* Responsive tweaks for navbar */
-@media (max-width: 500px) {
-  .nav-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 8px;
+/* Differentiate nav items */
+.nav-bar ul li.nav-home {
+  background: #00ffd5;
+  color: #222831;
+  border-radius: 30px;
+}
+.nav-bar ul li.nav-about {
+  background: #f0a029;
+  color: #222831;
+  border-radius: 30px;
+}
+.nav-bar ul li.nav-contact {
+  background: #4fd1c5;
+  color: #222831;
+  border-radius: 30px;
+}
+
+/* Responsive tweaks for calculator and navbar */
+@media (max-width: 600px) {
+  .card-calculator {
+    max-width: 98vw;
+    border-radius: 30px;
+    margin: 16px auto 0 auto; /* less top margin for mobile */
+    padding: 8px;
+    gap: 14px;
+  }
+  .display input {
+    height: 60px;
+    font-size: 20px;
+    padding: 0 8px;
     border-radius: 18px;
   }
+  .button {
+    font-size: 15px;
+    border-radius: 50%;
+    padding: 5px;
+  }
+  .button-grid {
+    gap: 5px;
+  }
+  .nav-bar {
+    flex-direction: column;
+    align-items: center;
+    max-width: 98vw;
+    padding: 6px 4px;
+    border-radius: 18px;
+    gap: 6px;
+    margin: 10px auto 16px auto;
+  }
   .nav-bar ul {
-    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0;
+    padding: 0;
   }
   .nav-bar ul li {
-    font-size: 16px;
-    padding: 5px 8px;
+    font-size: 15px;
+    padding: 8px 0;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin: 0;
+  }
+  .nav-bar ul li:not(:last-child)::after {
+    content: "";
+    display: block;
+    margin: 6px auto 0 auto;
+    width: 36%;
+    height: 1px;
+    background: #00ffd5;
+    opacity: 0.35;
+    border-radius: 2px;
+  }
+  .nav-bar ul li.nav-home,
+  .nav-bar ul li.nav-about,
+  .nav-bar ul li.nav-contact {
+    border-radius: 18px;
   }
 }
 
-/* Responsive tweaks */
 @media (max-width: 400px) {
   .display input {
-    height: 80px;
-    font-size: 28px;
+    height: 44px;
+    font-size: 14px;
+    padding: 0 4px;
   }
-
   .button {
-    font-size: 18px;
+    font-size: 11px;
+    padding: 1px;
+  }
+  .card-calculator {
+    padding: 2px;
+    border-radius: 10px;
+    gap: 8px;
+  }
+  .nav-bar {
+    padding: 2px 1px;
+    border-radius: 8px;
+    gap: 2px;
+    margin: 6px auto 10px auto;
+  }
+  .nav-bar ul li {
+    font-size: 12px;
+    padding: 3px 0;
+  }
+  .nav-bar ul li.nav-home,
+  .nav-bar ul li.nav-about,
+  .nav-bar ul li.nav-contact {
+    border-radius: 10px;
   }
 }
